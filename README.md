@@ -13,6 +13,8 @@ FileUtils is a cross-platform C# .NET class library offering for easy handling o
 
 # Examples 
 ```cs
+using MiJenner.FileUtils;
+
 string currentDir = Directory.GetCurrentDirectory();
 Console.WriteLine("string currentDir = DirectoryGetCurrentDirectory(): " + currentDir);
 Console.WriteLine("FileUtils.FolderExists(currentDir): " +FileUtils.FolderExists(currentDir));
@@ -35,5 +37,4 @@ catch (Exception)
 }
 Console.WriteLine("FileUtils.TryCreateFolder(folderPath): "+ FileUtils.TryCreateFolder(folderPath));
 ```
-
 
