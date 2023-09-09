@@ -1,10 +1,27 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>MiJenner.FileUtils</RootNamespace>
+    <Title>MiJenner.FileUtils</Title>
+    <PackageId></PackageId>
+    <Version>0.9.0</Version>
+    <Authors>Michael Jenner</Authors>
+    <Company>Jenner IT</Company>
+    <Description>FileUtils is a cross-platform C# .NET class library offering static methods for easy handling of files.</Description>
+    <Copyright>Copyright (c) 2023 Jenner IT</Copyright>
+    <PackageProjectUrl>https://github.com/mijenner/MiJenner.FileUtils</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/mijenner/MiJenner.FileUtils</RepositoryUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
