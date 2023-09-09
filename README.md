@@ -11,6 +11,20 @@ FileUtils is a cross-platform C# .NET class library offering for easy handling o
 * ```TryCreateFile(string)```. Method tries to create file given by input string. If success returns true, else false.
 * ```TryCreateFileForce(string)```. Method works like above, except if file already exists, in which case it is overwritten (cleared).
 
+# Method signatures
+```cs
+public static bool FolderExists(string folderPath)
+
+public static bool HasWriteAccess(string folderPath, int maxAttempts = 3)
+
+public static bool TryCreateFolder(string folderPath)
+
+public static bool TryCreateFile(string filePath)
+
+public static bool TryCreateFileForce(string filePath)
+```
+
+
 # Examples 
 ```cs
 using MiJenner.FileUtils;
