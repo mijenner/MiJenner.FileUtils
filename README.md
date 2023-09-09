@@ -24,8 +24,7 @@ public static bool TryCreateFile(string filePath)
 public static bool TryCreateFileForce(string filePath)
 ```
 
-
-# Examples 
+# Example 
 ```cs
 using MiJenner.FileUtils;
 
