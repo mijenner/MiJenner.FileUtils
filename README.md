@@ -1,4 +1,6 @@
 # MiJenner.FileUtils
 
-A C# .NET class library offering the following methods: 
+FileUtils is a C# .NET class library offering for easy handling of files. 
+
+
 
