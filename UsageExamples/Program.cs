@@ -32,7 +32,6 @@ namespace UsageExamples
             }
             Console.WriteLine("FileUtils.TryCreateFolder(folderPath): " + FileUtils.TryCreateFolder(folderPath));
 
-
         }
     }
 }

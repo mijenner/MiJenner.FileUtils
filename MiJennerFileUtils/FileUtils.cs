@@ -2,6 +2,14 @@
 {
     public static class FileUtils
     {
+        /// <summary>
+        /// Checks if folder exist, but first if string is non-empty. 
+        /// </summary>
+        /// <param name="folderPath"></param>
+        /// <returns>
+        /// True if folder exists. 
+        /// False if not. 
+        /// </returns>
         public static bool FolderExists(string folderPath)
         {
             if (!string.IsNullOrWhiteSpace(folderPath))
@@ -14,27 +22,33 @@
             return false;
         }
 
-        public static bool HasWriteAccess(string folderPath)
+
+        /// <summary>
+        /// Checks if user has write access to folderPath by writing a randomly named 
+        /// file to folder. 
+        /// It takes an optional parameter which by default is 3 which determines how many
+        /// different random names are attempted. 
+        /// If all randomly named files exists in advance it may erroneously return false, but 
+        /// statistically risc is very low. 
+        /// <code>
+        /// public static bool HasWriteAccess(string folderPath)
+        /// public static bool HasWriteAccess(string folderPath, int maxAttempts = 3)
+        /// </code>
+        /// </summary>
+        /// <param name="folderPath"></param>
+        /// <param name="maxAttempts"></param>
+        /// <returns></returns>
+        public static bool HasWriteAccess(string folderPath, int maxAttempts = 3)
         {
             if (Directory.Exists(folderPath))
             {
                 try
                 {
-                    // Attempt to create a temporary file within the directory.
-                    string tempFilePath = Path.Combine(folderPath, Path.GetRandomFileName());
-                    if (!File.Exists(tempFilePath))
+                    int cnt = maxAttempts;
+                    while (cnt > 0)
                     {
-                        using (FileStream fs = File.Create(tempFilePath))
-                        {
-                        }
-                        // The temporary file was created successfully.
-                        File.Delete(tempFilePath); // Clean up the temporary file.
-                        return true;
-                    }
-                    else
-                    {
-                        // if exists we will run another attemp: 
-                        tempFilePath = Path.Combine(folderPath, Path.GetRandomFileName());
+                        // Attempt to create a temporary file within the directory.
+                        string tempFilePath = Path.Combine(folderPath, Path.GetRandomFileName());
                         if (!File.Exists(tempFilePath))
                         {
                             using (FileStream fs = File.Create(tempFilePath))
@@ -44,11 +58,9 @@
                             File.Delete(tempFilePath); // Clean up the temporary file.
                             return true;
                         }
-                        else
-                        {
-                            return false;
-                        }
+                        cnt--; 
                     }
+
                 }
                 catch (UnauthorizedAccessException)
                 {
@@ -65,9 +77,9 @@
             else
             {
                 // Directory doesn't exist. 
-                return false; 
+                return false;
             }
-
+            return false; 
 
         }
 
