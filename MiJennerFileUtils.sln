@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiJennerFileUtils", "MiJennerFileUtils\MiJennerFileUtils.csproj", "{FF971EB0-F427-4311-9E0D-0FE7BC400897}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsageExamples", "UsageExamples\UsageExamples.csproj", "{F15DB468-A951-439E-939F-F67CC2E687F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FF971EB0-F427-4311-9E0D-0FE7BC400897}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF971EB0-F427-4311-9E0D-0FE7BC400897}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF971EB0-F427-4311-9E0D-0FE7BC400897}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F15DB468-A951-439E-939F-F67CC2E687F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F15DB468-A951-439E-939F-F67CC2E687F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F15DB468-A951-439E-939F-F67CC2E687F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F15DB468-A951-439E-939F-F67CC2E687F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

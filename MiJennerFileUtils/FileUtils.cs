@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MiJenner.FileUtils
+﻿namespace MiJenner.FileUtils
 {
     public static class FileUtils
     {
@@ -20,55 +14,64 @@ namespace MiJenner.FileUtils
             return false;
         }
 
-        private static bool HasWriteAccess(string folderPath)
+        public static bool HasWriteAccess(string folderPath)
         {
-            try
+            if (Directory.Exists(folderPath))
             {
-                // Attempt to create a temporary file within the directory.
-                string tempFilePath = Path.Combine(folderPath, Path.GetRandomFileName());
-                if (!File.Exists(tempFilePath))
+                try
                 {
-                    using (FileStream fs = File.Create(tempFilePath))
-                    {
-                        // The temporary file was created successfully.
-                        File.Delete(tempFilePath); // Clean up the temporary file.
-                        return true;
-                    }
-                }
-                else
-                {
-                    // if exists we will run another attemp: 
-                    tempFilePath = Path.Combine(folderPath, Path.GetRandomFileName());
+                    // Attempt to create a temporary file within the directory.
+                    string tempFilePath = Path.Combine(folderPath, Path.GetRandomFileName());
                     if (!File.Exists(tempFilePath))
                     {
                         using (FileStream fs = File.Create(tempFilePath))
                         {
+                        }
+                        // The temporary file was created successfully.
+                        File.Delete(tempFilePath); // Clean up the temporary file.
+                        return true;
+                    }
+                    else
+                    {
+                        // if exists we will run another attemp: 
+                        tempFilePath = Path.Combine(folderPath, Path.GetRandomFileName());
+                        if (!File.Exists(tempFilePath))
+                        {
+                            using (FileStream fs = File.Create(tempFilePath))
+                            {
+                            }
                             // The temporary file was created successfully.
                             File.Delete(tempFilePath); // Clean up the temporary file.
                             return true;
                         }
-                    }
-                    else
-                    {
-                        return false;
+                        else
+                        {
+                            return false;
+                        }
                     }
                 }
+                catch (UnauthorizedAccessException)
+                {
+                    // You don't have access to the security information
+                    return false;
+                }
+                catch (Exception)
+                {
+                    // Other exceptions, handle accordingly
+                    return false;
+                }
+
             }
-            catch (UnauthorizedAccessException)
+            else
             {
-                // You don't have access to the security information
-                return false;
-            }
-            catch (Exception)
-            {
-                // Other exceptions, handle accordingly
-                return false;
+                // Directory doesn't exist. 
+                return false; 
             }
 
-            return false; // No write access found
+
         }
 
-        private static bool TryCreateFolder(string folderPath)
+        public static bool TryCreateFolder(string folderPath)
         {
             try
             {
@@ -91,7 +94,7 @@ namespace MiJenner.FileUtils
         /// True if success. 
         /// False if fails. 
         /// </returns>
-        private static bool TryCreateFileForce(string filePath)
+        public static bool TryCreateFileForce(string filePath)
         {
             try
             {
@@ -116,7 +119,7 @@ namespace MiJenner.FileUtils
         /// True if success. 
         /// False if fails. 
         /// </returns>
-        private static bool TryCreateFile(string filePath)
+        public static bool TryCreateFile(string filePath)
         {
             try
             {
@@ -134,7 +137,5 @@ namespace MiJenner.FileUtils
                 return false; // File creation failed.
             }
         }
-
-
     }
 }
