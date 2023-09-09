@@ -83,6 +83,14 @@
 
         }
 
+        /// <summary>
+        /// Tries to create a folder without exceptions. 
+        /// </summary>
+        /// <param name="folderPath"></param>
+        /// <returns>
+        /// True if success. 
+        /// False if not. 
+        /// </returns>
         public static bool TryCreateFolder(string folderPath)
         {
             try
@@ -104,7 +112,7 @@
         /// <param name="filePath"></param>
         /// <returns>
         /// True if success. 
-        /// False if fails. 
+        /// False if not. Could happen if access issues. 
         /// </returns>
         public static bool TryCreateFileForce(string filePath)
         {
@@ -129,7 +137,7 @@
         /// <param name="filePath"></param>
         /// <returns>
         /// True if success. 
-        /// False if fails. 
+        /// False if fails. Could happen if access issues or if file already exists. 
         /// </returns>
         public static bool TryCreateFile(string filePath)
         {
