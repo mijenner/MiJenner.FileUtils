@@ -1,6 +1,6 @@
 # MiJenner.FileUtils
 
-FileUtils is a cross-platform C# .NET class library offering for easy handling of files. 
+FileUtils is a cross-platform C# .NET class library offering static methods for easy handling of files. 
 
 * ```FolderExists(string)``` Method takes a string with folder name and determines if it already exists or not.
 
