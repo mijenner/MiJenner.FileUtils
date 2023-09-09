@@ -107,7 +107,7 @@
 
         /// <summary>
         /// Tries to create file. 
-        /// If it already exists it is overwritten. 
+        /// If it already exists it is overwritten. n
         /// </summary>
         /// <param name="filePath"></param>
         /// <returns>
